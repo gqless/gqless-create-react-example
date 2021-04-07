@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
 
-import { selectFields } from "gqless";
 import { CursorConnectionArgs, usePaginatedQuery } from "../gqless";
 import { CreatePost } from "./CreatePost";
 
@@ -10,30 +9,34 @@ export function MyPosts() {
   const { data, fetchMore, isLoading } = usePaginatedQuery(
     (query, input: CursorConnectionArgs, { prepass }) => {
       const posts = query.currentUser.user!.posts({
-        input,
+        input
       });
 
-      return prepass(posts, "nodes.title", "pageInfo.hasNextPage", "pageInfo.endCursor");
+      return prepass(
+        posts,
+        "nodes.title",
+        "pageInfo.hasNextPage",
+        "pageInfo.endCursor"
+      );
     },
     {
       initialArgs: {
-        first,
+        first
       },
       merge({ data: { existing, incoming }, uniqBy }) {
         if (existing) {
           console.log({
             existing: JSON.parse(JSON.stringify(existing)),
-            incoming: JSON.parse(JSON.stringify(incoming)),
+            incoming: JSON.parse(JSON.stringify(incoming))
           });
-          incoming.nodes = existing.nodes = uniqBy(
-            [...existing.nodes, ...incoming.nodes],
-            (v) => v.id
-          );
-          existing.pageInfo = incoming.pageInfo;
+          return {
+            ...incoming,
+            nodes: uniqBy([...existing.nodes, ...incoming.nodes], (v) => v.id)
+          };
         }
 
         return incoming;
-      },
+      }
     }
   );
 
@@ -52,7 +55,7 @@ export function MyPosts() {
           onClick={() => {
             fetchMore({
               first,
-              after: data.pageInfo.endCursor,
+              after: data.pageInfo.endCursor
             });
           }}
         >
