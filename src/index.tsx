@@ -62,8 +62,8 @@ function Navigation() {
           justifyContent: "space-around",
           listStyle: "none",
           li: {
-            padding: "5px",
-          },
+            padding: "5px"
+          }
         }}
       >
         <li>
@@ -78,6 +78,7 @@ function Navigation() {
 }
 
 function App() {
+  const { currentUser } = useCurrentUser(false);
   return (
     <div css={{ display: "flex", flexDirection: "column" }}>
       <Router>
@@ -88,9 +89,11 @@ function App() {
             <Route exact path="/">
               <Hello />
             </Route>
+
             <Route path="/my_posts">
-              <MyPosts />
+              {currentUser.user?.id && <MyPosts />}
             </Route>
+
             <Route path="/login">
               <Login />
             </Route>
