@@ -6,6 +6,8 @@
     "build": "react-scripts build",
     "dev": "react-scripts start",
     "eject": "react-scripts eject",
+    "generate": "gqless generate",
+    "prepare-lock": "npm install --package-lock-only",
     "start": "react-scripts start",
     "test": "react-scripts test"
   },
@@ -55,7 +57,5 @@
     "react-use": "^17.2.3",
     "typescript": "^4.2.3",
     "web-vitals": "^1.1.1"
-  },
-  "keywords": [],
-  "description": ""
+  }
 }
