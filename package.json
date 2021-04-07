@@ -1,5 +1,5 @@
 {
-  "name": "gqless-cra-example",
+  "name": "gqless-create-react-app-example",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -55,5 +55,7 @@
     "react-use": "^17.2.3",
     "typescript": "^4.2.3",
     "web-vitals": "^1.1.1"
-  }
+  },
+  "keywords": [],
+  "description": ""
 }
