@@ -1,13 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Lato", sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+a:link {
+  text-decoration: inherit;
+  color: inherit;
+  font-weight: bold;
+  box-shadow: 1px 1px 1px 1px;
+  border-radius: 3px;
+  padding: 2px;
+}
+
+a:visited {
+  text-decoration: inherit;
+  color: inherit;
+  font-weight: bold;
+}
+
+a:hover {
+  color: rgb(52, 52, 170);
 }
